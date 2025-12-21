@@ -1,0 +1,1 @@
+import{_ as a,c as r,o as n,ae as t}from"./chunks/framework.CDjunVez.js";const m=JSON.parse('{"title":"Universal Scanner","description":"","frontmatter":{},"headers":[],"relativePath":"index.md","filePath":"index.md"}'),l={name:"index.md"};function i(o,e,s,c,d,_){return n(),r("div",null,[...e[0]||(e[0]=[t("",4)])])}const f=a(l,[["render",i]]);export{m as __pageData,f as default};
