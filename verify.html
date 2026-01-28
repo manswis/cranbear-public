@@ -74,35 +74,27 @@
 
     <script src="https://cdn.jsdelivr.net/npm/appwrite@13.0.0"></script>
     <script>
-        const client = new Appwrite.Client();
-        const account = new Appwrite.Account(client);
-
-        // TODO: Replace with your actual Project ID and Endpoint
-        client
-            .setEndpoint('https://cloud.appwrite.io/v1')
-            .setProject('66a63d2200267a45127c');
-
         const urlParams = new URLSearchParams(window.location.search);
         const secret = urlParams.get('secret');
         const userId = urlParams.get('userId');
 
         if (secret && userId) {
-            account.updateVerification(userId, secret)
-                .then(() => {
-                    document.getElementById('loading').classList.add('hidden');
-                    document.getElementById('success').classList.remove('hidden');
-                })
-                .catch((error) => {
-                    console.error(error);
-                    document.getElementById('loading').classList.add('hidden');
-                    document.getElementById('error').classList.remove('hidden');
-                    document.getElementById('error-msg').innerText = error.message;
-                });
+            // Construct Custom Scheme URL
+            const deepLink = `ledgerbridge://verify?userId=${userId}&secret=${secret}`;
+
+            // 1. Attempt to open App immediately
+            window.location.href = deepLink;
+
+            // 2. Show UI just in case
+            document.getElementById('loading').innerHTML = `
+            <h1>Opening App...</h1>
+            <p>If the app doesn't open, click below:</p>
+            <a href="${deepLink}" class="btn">Open Ladger Bridge</a>
+            `;
         } else {
-            // Just visiting the page without params
             document.getElementById('loading').classList.add('hidden');
             document.getElementById('error').classList.remove('hidden');
-            document.getElementById('error-msg').innerText = "Invalid verification link. Missing parameters.";
+            document.getElementById('error-msg').innerText = "Invalid verification link.";
         }
     </script>
 </body>
