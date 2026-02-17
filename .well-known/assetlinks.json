@@ -1,26 +1,26 @@
 [
-  {
-    "relation": [
-      "delegate_permission/common.handle_all_urls"
-    ],
-    "target": {
-      "namespace": "android_app",
-      "package_name": "com.cranbear.ledgerbridge",
-      "sha256_cert_fingerprints": [
-        "6C:D5:25:DE:E0:15:DC:63:CA:8E:ED:BC:2E:AA:F7:73:6F:EC:E8:AC:8A:CB:2D:C0:5E:49:F0:27:11:F1:83:BC"
-      ]
+    {
+        "relation": [
+            "delegate_permission/common.handle_all_urls"
+        ],
+        "target": {
+            "namespace": "android_app",
+            "package_name": "com.cranbear.ledgerbridge",
+            "sha256_cert_fingerprints": [
+                "6C:D5:25:DE:E0:15:DC:63:CA:8E:ED:BC:2E:AA:F7:73:6F:EC:E8:AC:8A:CB:2D:C0:5E:49:F0:27:11:F1:83:BC"
+            ]
+        }
+    },
+    {
+        "relation": [
+            "delegate_permission/common.handle_all_urls"
+        ],
+        "target": {
+            "namespace": "android_app",
+            "package_name": "com.cranbear.cosphere",
+            "sha256_cert_fingerprints": [
+                "6C:D5:25:DE:E0:15:DC:63:CA:8E:ED:BC:2E:AA:F7:73:6F:EC:E8:AC:8A:CB:2D:C0:5E:49:F0:27:11:F1:83:BC"
+            ]
+        }
     }
-  },
-  {
-    "relation": [
-      "delegate_permission/common.handle_all_urls"
-    ],
-    "target": {
-      "namespace": "android_app",
-      "package_name": "com.cranbear.cosphere",
-      "sha256_cert_fingerprints": [
-        "6C:D5:25:DE:E0:15:DC:63:CA:8E:ED:BC:2E:AA:F7:73:6F:EC:E8:AC:8A:CB:2D:C0:5E:49:F0:27:11:F1:83:BC"
-      ]
-    }
-  }
 ]
