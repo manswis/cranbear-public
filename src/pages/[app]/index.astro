@@ -19,15 +19,15 @@ const appDetails = getAppById(app)!;
 <BaseLayout title={`${appDetails.name} — Cranbear Application`} activeApp={app}>
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-10 space-y-8 sm:space-y-10">
     <!-- Header Block -->
-    <div class="p-5 sm:p-8 rounded-2xl sm:rounded-3xl border border-zinc-800 bg-zinc-900/80 backdrop-blur-xl flex flex-col sm:flex-row sm:items-start justify-between gap-5">
+    <div class="p-5 sm:p-8 rounded-2xl sm:rounded-3xl border skin-card backdrop-blur-xl flex flex-col sm:flex-row sm:items-start justify-between gap-5">
       <div class="flex items-center gap-3.5 sm:gap-5">
         <AppIcon appId={appDetails.id} appName={appDetails.name} size="lg" />
         <div class="space-y-1">
           <div class="flex flex-wrap items-center gap-2">
-            <h1 class="text-2xl sm:text-3xl font-bold text-white">{appDetails.name}</h1>
+            <h1 class="text-2xl sm:text-3xl font-bold skin-text-primary">{appDetails.name}</h1>
             <Badge status={appDetails.status} />
           </div>
-          <p class="text-xs sm:text-sm text-zinc-400 font-medium">{appDetails.category} • {appDetails.tagline}</p>
+          <p class="text-xs sm:text-sm skin-text-muted font-medium">{appDetails.category} • {appDetails.tagline}</p>
         </div>
       </div>
 
@@ -52,19 +52,19 @@ const appDetails = getAppById(app)!;
 
     <!-- Capabilities Grid -->
     <div class="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
-      <div class="p-5 sm:p-8 rounded-2xl sm:rounded-3xl border border-zinc-800 bg-zinc-900/60 space-y-3 sm:space-y-4">
-        <h2 class="text-lg sm:text-xl font-bold text-white">Product Overview</h2>
-        <p class="text-zinc-300 leading-relaxed text-xs sm:text-sm">
+      <div class="p-5 sm:p-8 rounded-2xl sm:rounded-3xl border skin-card space-y-3 sm:space-y-4">
+        <h2 class="text-lg sm:text-xl font-bold skin-text-primary">Product Overview</h2>
+        <p class="skin-text-secondary leading-relaxed text-xs sm:text-sm">
           {appDetails.description}
         </p>
       </div>
 
-      <div class="p-5 sm:p-8 rounded-2xl sm:rounded-3xl border border-zinc-800 bg-zinc-900/60 space-y-3 sm:space-y-4">
-        <h2 class="text-lg sm:text-xl font-bold text-white">Core Capabilities</h2>
-        <ul class="space-y-2 text-xs text-zinc-300">
+      <div class="p-5 sm:p-8 rounded-2xl sm:rounded-3xl border skin-card space-y-3 sm:space-y-4">
+        <h2 class="text-lg sm:text-xl font-bold skin-text-primary">Core Capabilities</h2>
+        <ul class="space-y-2 text-xs skin-text-primary">
           {appDetails.features.map((feat) => (
-            <li class="flex items-center gap-2.5 bg-zinc-950/60 p-2.5 rounded-xl border border-zinc-800/80">
-              <span class="text-emerald-400 font-bold">✓</span>
+            <li class="flex items-center gap-2.5 skin-elevated p-2.5 rounded-xl border">
+              <span class="text-emerald-600 dark:text-emerald-400 font-bold">✓</span>
               <span>{feat}</span>
             </li>
           ))}
@@ -74,8 +74,8 @@ const appDetails = getAppById(app)!;
 
     <!-- Screenshot Gallery -->
     {appDetails.screenshots && appDetails.screenshots.length > 0 && (
-      <div class="space-y-3 sm:space-y-4 pt-4 sm:pt-6 border-t border-zinc-800/80">
-        <h2 class="text-lg sm:text-xl font-bold text-white">Interface Gallery ({appDetails.screenshots.length})</h2>
+      <div class="space-y-3 sm:space-y-4 pt-4 sm:pt-6 border-t border-zinc-200 dark:border-zinc-800/80">
+        <h2 class="text-lg sm:text-xl font-bold skin-text-primary">Interface Gallery ({appDetails.screenshots.length})</h2>
         <ScreenshotCarousel appId={appDetails.id} screenshots={appDetails.screenshots} appName={appDetails.name} />
       </div>
     )}
