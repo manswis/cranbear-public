@@ -1,10 +1,11 @@
 @import "tailwindcss";
 @import "./theme/tokens.css";
 
+@variant dark (&:where(.dark, .dark *));
+
 @layer base {
   html {
     scroll-behavior: smooth;
-    color-scheme: dark;
   }
   
   body {
@@ -13,7 +14,33 @@
     font-family: var(--skin-font-sans);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    transition: background-color 0.2s ease, color 0.2s ease;
   }
+}
+
+/* Custom Theme Token Classes for Guaranteed Dual Light/Dark Modes */
+.skin-card {
+  background-color: var(--skin-bg-card);
+  border-color: var(--skin-border);
+  box-shadow: var(--skin-shadow-card);
+  color: var(--skin-text-primary);
+}
+
+.skin-text-primary {
+  color: var(--skin-text-primary);
+}
+
+.skin-text-secondary {
+  color: var(--skin-text-secondary);
+}
+
+.skin-text-muted {
+  color: var(--skin-text-muted);
+}
+
+.skin-elevated {
+  background-color: var(--skin-bg-elevated);
+  border-color: var(--skin-border);
 }
 
 /* Custom Scrollbar */
@@ -25,11 +52,8 @@
   background: var(--skin-bg-base);
 }
 ::-webkit-scrollbar-thumb {
-  background: #27272a;
+  background: var(--skin-border-hover);
   border-radius: 3px;
-}
-::-webkit-scrollbar-thumb:hover {
-  background: #3f3f46;
 }
 
 /* Apple Legal Document Prose Reader Styling */
@@ -84,14 +108,14 @@
 }
 
 .prose a {
-  color: #38bdf8;
+  color: #0284c7;
   text-decoration: underline;
   text-underline-offset: 3px;
   transition: color 0.15s ease;
 }
 
-.prose a:hover {
-  color: #7dd3fc;
+html.dark .prose a {
+  color: #38bdf8;
 }
 
 .prose table {

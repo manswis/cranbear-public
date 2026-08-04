@@ -1,22 +1,16 @@
 ---
 import BaseLayout from './BaseLayout.astro';
 import AppIcon from '../components/ui/AppIcon.astro';
-import { getAppById } from '../data/apps';
-
-interface Heading {
-  depth: number;
-  slug: string;
-  text: string;
-}
+import { APPS, getAppById } from '../data/apps';
 
 interface Props {
   title: string;
   app: string;
   type: 'privacy' | 'terms' | 'guide';
-  headings?: Heading[];
+  headings: { depth: number; slug: string; text: string }[];
 }
 
-const { title, app, type, headings = [] } = Astro.props;
+const { title, app, type, headings } = Astro.props;
 
 const appInfo = getAppById(app) || {
   id: app,
@@ -31,39 +25,39 @@ const docTitleMap = {
 ---
 
 <BaseLayout title={`${title} — ${appInfo.name}`} activeApp={app}>
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-6">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8 space-y-6">
     <!-- Header Banner -->
-    <div class="p-6 rounded-3xl border border-zinc-800 bg-zinc-900/80 backdrop-blur-xl flex flex-wrap items-center justify-between gap-4">
-      <div class="flex items-center gap-4">
+    <div class="p-4 sm:p-6 rounded-2xl sm:rounded-3xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900/80 backdrop-blur-xl flex flex-wrap items-center justify-between gap-4 shadow-sm">
+      <div class="flex items-center gap-3 sm:gap-4">
         <AppIcon appId={appInfo.id} appName={appInfo.name} size="lg" />
-        <div class="space-y-1">
-          <h1 class="text-xl sm:text-2xl font-bold text-white">{appInfo.name}</h1>
-          <p class="text-xs text-zinc-400 font-medium">{docTitleMap[type]}</p>
+        <div class="space-y-0.5">
+          <h1 class="text-lg sm:text-2xl font-bold text-zinc-900 dark:text-white">{appInfo.name}</h1>
+          <p class="text-xs text-zinc-500 dark:text-zinc-400 font-medium">{docTitleMap[type]}</p>
         </div>
       </div>
 
       <!-- App Document Tabs -->
-      <div class="flex items-center gap-2 bg-zinc-950 p-1.5 rounded-full border border-zinc-800">
+      <div class="flex items-center gap-1 sm:gap-1.5 bg-zinc-100 dark:bg-zinc-950 p-1 sm:p-1.5 rounded-full border border-zinc-200 dark:border-zinc-800">
         <a 
           href={`/${app}/guide/`} 
-          class={`px-3.5 py-1.5 rounded-full text-xs font-medium transition-all ${
-            type === 'guide' ? 'bg-white text-zinc-950 font-semibold shadow-sm' : 'text-zinc-400 hover:text-white'
+          class={`px-3 sm:px-3.5 py-1 sm:py-1.5 rounded-full text-xs font-medium transition-all ${
+            type === 'guide' ? 'bg-white dark:bg-zinc-100 text-zinc-950 font-semibold shadow-sm' : 'text-zinc-600 dark:text-zinc-400 hover:text-zinc-950 dark:hover:text-white'
           }`}
         >
           User Guide
         </a>
         <a 
           href={`/${app}/privacy/`} 
-          class={`px-3.5 py-1.5 rounded-full text-xs font-medium transition-all ${
-            type === 'privacy' ? 'bg-white text-zinc-950 font-semibold shadow-sm' : 'text-zinc-400 hover:text-white'
+          class={`px-3 sm:px-3.5 py-1 sm:py-1.5 rounded-full text-xs font-medium transition-all ${
+            type === 'privacy' ? 'bg-white dark:bg-zinc-100 text-zinc-950 font-semibold shadow-sm' : 'text-zinc-600 dark:text-zinc-400 hover:text-zinc-950 dark:hover:text-white'
           }`}
         >
           Privacy Policy
         </a>
         <a 
           href={`/${app}/terms/`} 
-          class={`px-3.5 py-1.5 rounded-full text-xs font-medium transition-all ${
-            type === 'terms' ? 'bg-white text-zinc-950 font-semibold shadow-sm' : 'text-zinc-400 hover:text-white'
+          class={`px-3 sm:px-3.5 py-1 sm:py-1.5 rounded-full text-xs font-medium transition-all ${
+            type === 'terms' ? 'bg-white dark:bg-zinc-100 text-zinc-950 font-semibold shadow-sm' : 'text-zinc-600 dark:text-zinc-400 hover:text-zinc-950 dark:hover:text-white'
           }`}
         >
           Terms of Usage
@@ -71,55 +65,56 @@ const docTitleMap = {
       </div>
     </div>
 
-    <!-- 3-Column Reader Grid -->
-    <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
-      <!-- Left Directory Sidebar (Col 1-3) -->
-      <aside class="lg:col-span-3 space-y-4">
-        <div class="p-5 rounded-2xl border border-zinc-800 bg-zinc-900/60 space-y-3">
-          <div class="text-xs font-semibold text-zinc-400 uppercase tracking-wider">DOCUMENT DIRECTORY</div>
-          <ul class="space-y-1.5 text-xs font-medium text-zinc-400">
-            <li>
-              <a href={`/${app}/privacy/`} class={`block p-2 rounded-xl transition-all ${type === 'privacy' ? 'bg-zinc-800 text-white font-bold' : 'hover:bg-zinc-800/50 hover:text-white'}`}>
-                🔒 Privacy Policy
-              </a>
-            </li>
-            <li>
-              <a href={`/${app}/terms/`} class={`block p-2 rounded-xl transition-all ${type === 'terms' ? 'bg-zinc-800 text-white font-bold' : 'hover:bg-zinc-800/50 hover:text-white'}`}>
-                ⚖️ Terms of Usage
-              </a>
-            </li>
-            <li>
-              <a href={`/${app}/guide/`} class={`block p-2 rounded-xl transition-all ${type === 'guide' ? 'bg-zinc-800 text-white font-bold' : 'hover:bg-zinc-800/50 hover:text-white'}`}>
-                📖 User Guide & Help
-              </a>
-            </li>
-          </ul>
+    <!-- 3-Column Knowledge Base Reader Layout -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 items-start">
+      <!-- Left Directory Sidebar -->
+      <aside class="hidden lg:block lg:col-span-3 space-y-4 sticky top-24">
+        <div class="p-4 rounded-2xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900/60 space-y-3">
+          <div class="text-xs font-bold text-zinc-400 uppercase tracking-wider">APP DIRECTORY</div>
+          <div class="space-y-1">
+            {APPS.map((a) => (
+              <div class="space-y-1">
+                <a 
+                  href={`/${a.id}/`}
+                  class={`flex items-center gap-2.5 p-2 rounded-xl text-xs font-medium transition-colors ${
+                    a.id === app ? 'bg-zinc-100 dark:bg-zinc-800/80 text-zinc-950 dark:text-white font-semibold' : 'text-zinc-600 dark:text-zinc-400 hover:bg-zinc-50 dark:hover:bg-zinc-800/40'
+                  }`}
+                >
+                  <AppIcon appId={a.id} appName={a.name} size="sm" />
+                  <span class="truncate">{a.name}</span>
+                </a>
+              </div>
+            ))}
+          </div>
         </div>
       </aside>
 
-      <!-- Center Document Article (Col 4-9) -->
-      <main class="lg:col-span-6 p-6 sm:p-8 rounded-3xl border border-zinc-800 bg-zinc-900/80 shadow-xl">
+      <!-- Center Document Article -->
+      <main class="lg:col-span-6 bg-white dark:bg-zinc-900/80 p-5 sm:p-8 rounded-2xl sm:rounded-3xl border border-zinc-200 dark:border-zinc-800 shadow-sm backdrop-blur-xl">
         <article class="prose max-w-none">
           <slot />
         </article>
       </main>
 
-      <!-- Right "On This Page" TOC Outline (Col 10-12) -->
-      <aside class="lg:col-span-3 space-y-4 hidden lg:block sticky top-24">
-        {headings.length > 0 && (
-          <div class="p-5 rounded-2xl border border-zinc-800 bg-zinc-900/60 space-y-3">
-            <div class="text-xs font-semibold text-zinc-400 uppercase tracking-wider">ON THIS PAGE</div>
-            <ul class="space-y-1.5 text-xs text-zinc-400 font-medium">
+      <!-- Right "On This Page" Table of Contents -->
+      <aside class="hidden lg:block lg:col-span-3 space-y-4 sticky top-24">
+        {headings && headings.length > 0 && (
+          <div class="p-4 rounded-2xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900/60 space-y-3 max-h-[calc(100vh-8rem)] overflow-y-auto">
+            <div class="text-xs font-bold text-zinc-400 uppercase tracking-wider">ON THIS PAGE</div>
+            <nav class="space-y-1 text-xs">
               {headings
                 .filter((h) => h.depth <= 3)
                 .map((h) => (
-                  <li style={`padding-left: ${(h.depth - 1) * 8}px`}>
-                    <a href={`#${h.slug}`} class="hover:text-white transition-colors block py-0.5 truncate">
-                      {h.text}
-                    </a>
-                  </li>
+                  <a
+                    href={`#${h.slug}`}
+                    class={`block py-1 transition-colors hover:text-cyan-600 dark:hover:text-cyan-400 ${
+                      h.depth === 3 ? 'pl-3 text-zinc-500 dark:text-zinc-500' : 'font-medium text-zinc-700 dark:text-zinc-300'
+                    }`}
+                  >
+                    {h.text}
+                  </a>
                 ))}
-            </ul>
+            </nav>
           </div>
         )}
       </aside>

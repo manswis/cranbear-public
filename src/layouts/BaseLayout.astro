@@ -17,7 +17,7 @@ const {
 ---
 
 <!DOCTYPE html>
-<html lang="en" class="dark">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -27,8 +27,59 @@ const {
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet" />
+
+    <!-- Safe Central Theme Manager (Anti-Flash + Safe LocalStorage) -->
+    <script is:inline>
+      (function() {
+        function getSafeTheme() {
+          try {
+            return localStorage.getItem('theme');
+          } catch (e) {
+            return null;
+          }
+        }
+        
+        function setSafeTheme(val) {
+          try {
+            localStorage.setItem('theme', val);
+          } catch (e) {}
+        }
+
+        window.__updateTheme = function(mode) {
+          const html = document.documentElement;
+          let isDark;
+
+          if (mode === 'dark') {
+            isDark = true;
+          } else if (mode === 'light') {
+            isDark = false;
+          } else {
+            isDark = !html.classList.contains('dark');
+          }
+
+          if (isDark) {
+            html.classList.add('dark');
+            setSafeTheme('dark');
+          } else {
+            html.classList.remove('dark');
+            setSafeTheme('light');
+          }
+          return isDark;
+        };
+
+        const stored = getSafeTheme();
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        const initialIsDark = stored === 'dark' || (!stored && prefersDark);
+        
+        if (initialIsDark) {
+          document.documentElement.classList.add('dark');
+        } else {
+          document.documentElement.classList.remove('dark');
+        }
+      })();
+    </script>
   </head>
-  <body class="min-h-screen flex flex-col bg-zinc-950 text-white selection:bg-cyan-500 selection:text-black">
+  <body class="min-h-screen flex flex-col selection:bg-cyan-500 selection:text-black">
     <Header activeApp={activeApp} />
     
     <main class="flex-grow">

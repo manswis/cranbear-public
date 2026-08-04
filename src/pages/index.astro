@@ -8,55 +8,55 @@ import { APPS } from '../data/apps';
 ---
 
 <BaseLayout title="Cranbear — Apps Built for Privacy & Performance">
-  <!-- Hero Section (Apple Feature Banner Style) -->
+  <!-- Hero Section -->
   <section class="py-10 sm:py-16 text-center space-y-4 max-w-4xl mx-auto px-4">
-    <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-zinc-800 bg-zinc-900/80 text-[11px] sm:text-xs font-semibold text-zinc-300 shadow-sm">
-      <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+    <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border skin-card text-[11px] sm:text-xs font-semibold shadow-sm">
+      <span class="w-2 h-2 rounded-full bg-emerald-500 dark:bg-emerald-400 animate-pulse"></span>
       <span>ENGINEERED FOR PRIVACY & SPEED</span>
     </div>
 
-    <h1 class="text-3xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-white font-sans">
-      Apps Built for <span class="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 via-cyan-400 to-indigo-500">Simplicity & Privacy</span>
+    <h1 class="text-3xl sm:text-5xl lg:text-6xl font-bold tracking-tight skin-text-primary font-sans">
+      Apps Built for <span class="text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 via-cyan-600 to-indigo-600 dark:from-emerald-400 dark:via-cyan-400 dark:to-indigo-500">Simplicity & Privacy</span>
     </h1>
 
-    <p class="text-sm sm:text-base text-zinc-400 font-sans max-w-2xl mx-auto leading-relaxed">
+    <p class="text-sm sm:text-base skin-text-secondary font-sans max-w-2xl mx-auto leading-relaxed">
       Powerful mobile software crafted to be effortless for everyone. No complicated setup, no intrusive tracking—just clean, reliable tools.
     </p>
 
     <div class="flex items-center justify-center gap-2.5 pt-2">
       <Button href="#apps" variant="primary" size="md">
-        EXPLORE APPS
+        Explore Apps
       </Button>
       <Button href="mailto:cranbear.service@gmail.com" variant="outline" size="md">
-        CONTACT SUPPORT
+        Contact Support
       </Button>
     </div>
   </section>
 
-  <!-- Apps Showcase Section (Apple Feature Cards Grid) -->
+  <!-- Apps Showcase Section -->
   <section id="apps" class="py-6 sm:py-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8 sm:space-y-10">
     <div class="text-center space-y-1">
-      <div class="text-[11px] font-semibold text-cyan-400 uppercase tracking-widest">PRODUCT ECOSYSTEM</div>
-      <h2 class="text-2xl sm:text-3xl font-bold text-white">Our Applications</h2>
+      <div class="text-[11px] font-semibold text-cyan-600 dark:text-cyan-400 uppercase tracking-widest">PRODUCT ECOSYSTEM</div>
+      <h2 class="text-2xl sm:text-3xl font-bold skin-text-primary">Our Applications</h2>
     </div>
 
     <div class="space-y-6 sm:space-y-8">
       {APPS.map((app) => (
-        <div class="rounded-2xl sm:rounded-3xl border border-zinc-800 bg-zinc-900/80 p-4 sm:p-8 shadow-xl backdrop-blur-xl space-y-5 sm:space-y-6">
+        <div class="rounded-2xl sm:rounded-3xl border skin-card p-4 sm:p-8 backdrop-blur-xl space-y-5 sm:space-y-6">
           <!-- Card Header Block -->
-          <div class="flex flex-col sm:flex-row sm:items-start justify-between gap-4 border-b border-zinc-800/80 pb-4 sm:pb-5">
+          <div class="flex flex-col sm:flex-row sm:items-start justify-between gap-4 border-b border-zinc-200 dark:border-zinc-800/80 pb-4 sm:pb-5">
             <div class="flex items-center gap-3 sm:gap-4">
               <AppIcon appId={app.id} appName={app.name} size="md" />
               <div class="space-y-0.5 sm:space-y-1">
                 <div class="flex flex-wrap items-center gap-2">
-                  <h3 class="text-xl sm:text-2xl font-bold text-white">{app.name}</h3>
+                  <h3 class="text-xl sm:text-2xl font-bold skin-text-primary">{app.name}</h3>
                   <Badge status={app.status} />
                 </div>
-                <p class="text-xs text-zinc-400 font-medium">{app.category} • {app.tagline}</p>
+                <p class="text-xs skin-text-muted font-medium">{app.category} • {app.tagline}</p>
               </div>
             </div>
 
-            <!-- Quick Actions Grid for Mobile & Flex for Desktop -->
+            <!-- Quick Actions Grid -->
             <div class="grid grid-cols-2 sm:flex sm:flex-wrap sm:items-center gap-2 pt-2 sm:pt-0">
               {app.playStoreUrl && (
                 <Button href={app.playStoreUrl} target="_blank" rel="noopener noreferrer" variant="primary" size="sm" class="col-span-2 sm:col-span-1">
@@ -79,17 +79,17 @@ import { APPS } from '../data/apps';
           <!-- Description & Feature Checklist -->
           <div class="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
             <div class="space-y-3">
-              <p class="text-zinc-300 leading-relaxed text-xs sm:text-sm font-sans">
+              <p class="skin-text-secondary leading-relaxed text-xs sm:text-sm font-sans">
                 {app.description}
               </p>
             </div>
 
             <div class="space-y-2">
-              <div class="text-[11px] font-semibold text-zinc-400 uppercase tracking-wider">KEY SPECIFICATIONS:</div>
-              <ul class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs text-zinc-300 font-sans">
+              <div class="text-[11px] font-semibold skin-text-muted uppercase tracking-wider">KEY SPECIFICATIONS:</div>
+              <ul class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs skin-text-primary font-sans">
                 {app.features.map((feat) => (
-                  <li class="flex items-start gap-2 bg-zinc-950/60 p-2 sm:p-2.5 rounded-xl border border-zinc-800/80">
-                    <span class="text-emerald-400 font-bold">✓</span>
+                  <li class="flex items-start gap-2 skin-elevated p-2 sm:p-2.5 rounded-xl border">
+                    <span class="text-emerald-600 dark:text-emerald-400 font-bold">✓</span>
                     <span>{feat}</span>
                   </li>
                 ))}
@@ -99,8 +99,8 @@ import { APPS } from '../data/apps';
 
           <!-- Interface Screenshots Carousel -->
           {app.screenshots && app.screenshots.length > 0 && (
-            <div class="pt-3 sm:pt-4 border-t border-zinc-800/60 space-y-2">
-              <div class="text-[11px] font-semibold text-zinc-400 uppercase tracking-wider">INTERFACE GALLERY ({app.screenshots.length}):</div>
+            <div class="pt-3 sm:pt-4 border-t border-zinc-200 dark:border-zinc-800/60 space-y-2">
+              <div class="text-[11px] font-semibold skin-text-muted uppercase tracking-wider">INTERFACE GALLERY ({app.screenshots.length}):</div>
               <ScreenshotCarousel appId={app.id} screenshots={app.screenshots} appName={app.name} />
             </div>
           )}
