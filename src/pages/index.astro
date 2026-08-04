@@ -56,13 +56,33 @@ import { APPS } from '../data/apps';
               </div>
             </div>
 
-            <!-- Quick Actions Grid -->
-            <div class="grid grid-cols-2 sm:flex sm:flex-wrap sm:items-center gap-2 pt-2 sm:pt-0">
-              {app.playStoreUrl && (
-                <Button href={app.playStoreUrl} target="_blank" rel="noopener noreferrer" variant="primary" size="sm" class="col-span-2 sm:col-span-1">
-                  <svg class="w-3.5 h-3.5 mr-1 inline-block fill-current" viewBox="0 0 24 24"><path d="M3,20.5V3.5C3,2.91 3.34,2.39 3.84,2.15L13.69,12L3.84,21.85C3.34,21.6 3,21.09 3,20.5M16.81,15.12L18.81,13.97C20.12,13.22 20.12,11.78 18.81,11.03L16.81,9.88L14.81,11.88L16.81,15.12M4.5,3.15L13.69,12.34L14.81,11.22M4.5,20.85L14.81,12.78L13.69,11.66"/></svg>
-                  Google Play
-                </Button>
+            <!-- Quick Actions Grid: 4 Symmetric Pills on Mobile -->
+            <div class="grid grid-cols-2 sm:flex sm:flex-wrap sm:items-center gap-2 pt-2 sm:pt-0 w-full sm:w-auto">
+              {app.playStoreUrl ? (
+                <a 
+                  href={app.playStoreUrl} 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  class="inline-flex items-center justify-center font-semibold rounded-full bg-emerald-600 hover:bg-emerald-500 text-white shadow-md transition-all px-2.5 py-1 text-[10px] sm:text-xs sm:px-3.5 sm:py-1.5 gap-1 whitespace-nowrap active:scale-95"
+                >
+                  <svg class="w-3.5 h-3.5 flex-shrink-0" viewBox="0 0 512 512" fill="none">
+                    <path d="M325.8 243.8L74.8 494.8C65.5 504.1 50.4 497.5 50.4 484.4V27.6C50.4 14.5 65.5 7.9 74.8 17.2L325.8 268.2C332.5 274.9 332.5 285.8 325.8 292.5" fill="#00D2FF"/>
+                    <path d="M386.7 304.7L325.8 243.8L74.8 494.8L386.7 322.7C395 318.1 395 309.3 386.7 304.7Z" fill="#00F076"/>
+                    <path d="M386.7 187.3L74.8 15.2L325.8 268.2L386.7 207.3C395 202.7 395 191.9 386.7 187.3Z" fill="#FF3A44"/>
+                    <path d="M461.5 243.8L386.7 304.7L325.8 268.2L386.7 207.3L461.5 268.2C469.8 272.8 469.8 281.6 461.5 286.2Z" fill="#FFC107"/>
+                  </svg>
+                  <span>Google Play</span>
+                </a>
+              ) : (
+                <span class="inline-flex items-center justify-center font-medium rounded-full bg-zinc-200/80 dark:bg-zinc-800 text-zinc-500 dark:text-zinc-400 border border-zinc-300 dark:border-zinc-700/80 px-2.5 py-1 text-[10px] sm:text-xs sm:px-3.5 sm:py-1.5 gap-1 whitespace-nowrap opacity-75">
+                  <svg class="w-3.5 h-3.5 flex-shrink-0 grayscale opacity-70" viewBox="0 0 512 512" fill="none">
+                    <path d="M325.8 243.8L74.8 494.8C65.5 504.1 50.4 497.5 50.4 484.4V27.6C50.4 14.5 65.5 7.9 74.8 17.2L325.8 268.2C332.5 274.9 332.5 285.8 325.8 292.5" fill="#00D2FF"/>
+                    <path d="M386.7 304.7L325.8 243.8L74.8 494.8L386.7 322.7C395 318.1 395 309.3 386.7 304.7Z" fill="#00F076"/>
+                    <path d="M386.7 187.3L74.8 15.2L325.8 268.2L386.7 207.3C395 202.7 395 191.9 386.7 187.3Z" fill="#FF3A44"/>
+                    <path d="M461.5 243.8L386.7 304.7L325.8 268.2L386.7 207.3L461.5 268.2C469.8 272.8 469.8 281.6 461.5 286.2Z" fill="#FFC107"/>
+                  </svg>
+                  <span>Coming Soon</span>
+                </span>
               )}
               <Button href={`/${app.id}/guide/`} variant="secondary" size="sm">
                 User Guide
