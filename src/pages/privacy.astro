@@ -1,0 +1,12 @@
+---
+import { getCollection } from 'astro:content';
+import LegalLayout from '../layouts/LegalLayout.astro';
+
+const entries = await getCollection('legal', (entry) => entry.data.type === 'privacy' && entry.data.app === 'universal-scanner');
+const entry = entries[0];
+const { Content, headings } = await entry.render();
+---
+
+<LegalLayout title={entry.data.title} app="universal-scanner" type="privacy" headings={headings}>
+  <Content />
+</LegalLayout>
