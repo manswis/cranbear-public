@@ -1,4 +1,6 @@
 ---
+import { getAppById } from '../../data/apps';
+
 interface Props {
   appId: string;
   appName: string;
@@ -7,13 +9,15 @@ interface Props {
 
 const { appId, appName, size = 'md' } = Astro.props;
 
+const appData = getAppById(appId);
+
 const iconPathMap: Record<string, string> = {
   'universal-scanner': '/assets/universal-scanner/icon.png',
   'music-bridge': '/assets/music-bridge/icon.svg',
-  'cosphere': '/assets/cosphere/icon.svg',
+  'cosphere': '/assets/cosphere/icon.png',
 };
 
-const iconUrl = iconPathMap[appId];
+const iconUrl = appData?.icon || iconPathMap[appId];
 
 const sizeClasses = {
   sm: 'w-8 h-8 rounded-xl text-xs',

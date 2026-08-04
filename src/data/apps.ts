@@ -53,7 +53,7 @@ export const APPS: AppData[] = [
     category: 'Real Estate & Community',
     tagline: 'Simple Housing & Gate Security for Your Community.',
     description: 'Comprehensive property administration, tenant roster synchronization, gate access security, and automated maintenance dispatch system.',
-    icon: '/assets/cosphere/icon.svg',
+    icon: '/assets/cosphere/icon.png',
     status: 'coming-soon',
     features: [
       'Real-time gate pass verification & RFID telemetry',
