@@ -17,49 +17,53 @@ const appDetails = getAppById(app)!;
 ---
 
 <BaseLayout title={`${appDetails.name} — Cranbear Application`} activeApp={app}>
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-10">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-10 space-y-8 sm:space-y-10">
     <!-- Header Block -->
-    <div class="p-8 rounded-3xl border border-zinc-800 bg-zinc-900/80 backdrop-blur-xl flex flex-wrap items-start justify-between gap-6">
-      <div class="flex items-center gap-5">
-        <AppIcon appId={appDetails.id} appName={appDetails.name} size="xl" />
-        <div class="space-y-1.5">
-          <div class="flex items-center gap-3">
-            <h1 class="text-3xl font-bold text-white">{appDetails.name}</h1>
+    <div class="p-5 sm:p-8 rounded-2xl sm:rounded-3xl border border-zinc-800 bg-zinc-900/80 backdrop-blur-xl flex flex-col sm:flex-row sm:items-start justify-between gap-5">
+      <div class="flex items-center gap-3.5 sm:gap-5">
+        <AppIcon appId={appDetails.id} appName={appDetails.name} size="lg" />
+        <div class="space-y-1">
+          <div class="flex flex-wrap items-center gap-2">
+            <h1 class="text-2xl sm:text-3xl font-bold text-white">{appDetails.name}</h1>
             <Badge status={appDetails.status} />
           </div>
-          <p class="text-sm text-zinc-400 font-medium">{appDetails.category} • {appDetails.tagline}</p>
+          <p class="text-xs sm:text-sm text-zinc-400 font-medium">{appDetails.category} • {appDetails.tagline}</p>
         </div>
       </div>
 
-      <div class="flex flex-wrap items-center gap-2.5">
+      <div class="grid grid-cols-2 sm:flex sm:flex-wrap sm:items-center gap-2 pt-2 sm:pt-0">
         {appDetails.playStoreUrl && (
-          <Button href={appDetails.playStoreUrl} target="_blank" rel="noopener noreferrer" variant="primary" size="md">
-            DOWNLOAD ON GOOGLE PLAY
+          <Button href={appDetails.playStoreUrl} target="_blank" rel="noopener noreferrer" variant="primary" size="sm" class="col-span-2 sm:col-span-1">
+            <svg class="w-3.5 h-3.5 mr-1 inline-block fill-current" viewBox="0 0 24 24"><path d="M3,20.5V3.5C3,2.91 3.34,2.39 3.84,2.15L13.69,12L3.84,21.85C3.34,21.6 3,21.09 3,20.5M16.81,15.12L18.81,13.97C20.12,13.22 20.12,11.78 18.81,11.03L16.81,9.88L14.81,11.88L16.81,15.12M4.5,3.15L13.69,12.34L14.81,11.22M4.5,20.85L14.81,12.78L13.69,11.66"/></svg>
+            Google Play
           </Button>
         )}
-        <Button href={`/${appDetails.id}/guide/`} variant="secondary" size="md">
-          USER GUIDE & HELP
+        <Button href={`/${appDetails.id}/guide/`} variant="secondary" size="sm">
+          User Guide
         </Button>
-        <Button href={`/${appDetails.id}/privacy/`} variant="outline" size="md">
-          PRIVACY POLICY
+        <Button href={`/${appDetails.id}/privacy/`} variant="outline" size="sm">
+          Privacy Policy
+        </Button>
+        <Button href={`/${appDetails.id}/terms/`} variant="outline" size="sm">
+          Terms of Use
         </Button>
       </div>
     </div>
 
     <!-- Capabilities Grid -->
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-      <div class="p-8 rounded-3xl border border-zinc-800 bg-zinc-900/60 space-y-4">
-        <h2 class="text-xl font-bold text-white">Product Overview</h2>
-        <p class="text-zinc-300 leading-relaxed text-sm">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
+      <div class="p-5 sm:p-8 rounded-2xl sm:rounded-3xl border border-zinc-800 bg-zinc-900/60 space-y-3 sm:space-y-4">
+        <h2 class="text-lg sm:text-xl font-bold text-white">Product Overview</h2>
+        <p class="text-zinc-300 leading-relaxed text-xs sm:text-sm">
           {appDetails.description}
         </p>
       </div>
 
-      <div class="p-8 rounded-3xl border border-zinc-800 bg-zinc-900/60 space-y-4">
-        <h2 class="text-xl font-bold text-white">Core Capabilities</h2>
-        <ul class="space-y-2.5 text-xs text-zinc-300">
+      <div class="p-5 sm:p-8 rounded-2xl sm:rounded-3xl border border-zinc-800 bg-zinc-900/60 space-y-3 sm:space-y-4">
+        <h2 class="text-lg sm:text-xl font-bold text-white">Core Capabilities</h2>
+        <ul class="space-y-2 text-xs text-zinc-300">
           {appDetails.features.map((feat) => (
-            <li class="flex items-center gap-3 bg-zinc-950/60 p-3 rounded-2xl border border-zinc-800/80">
+            <li class="flex items-center gap-2.5 bg-zinc-950/60 p-2.5 rounded-xl border border-zinc-800/80">
               <span class="text-emerald-400 font-bold">✓</span>
               <span>{feat}</span>
             </li>
@@ -70,8 +74,8 @@ const appDetails = getAppById(app)!;
 
     <!-- Screenshot Gallery -->
     {appDetails.screenshots && appDetails.screenshots.length > 0 && (
-      <div class="space-y-4 pt-6 border-t border-zinc-800/80">
-        <h2 class="text-xl font-bold text-white">Interface Gallery ({appDetails.screenshots.length})</h2>
+      <div class="space-y-3 sm:space-y-4 pt-4 sm:pt-6 border-t border-zinc-800/80">
+        <h2 class="text-lg sm:text-xl font-bold text-white">Interface Gallery ({appDetails.screenshots.length})</h2>
         <ScreenshotCarousel appId={appDetails.id} screenshots={appDetails.screenshots} appName={appDetails.name} />
       </div>
     )}

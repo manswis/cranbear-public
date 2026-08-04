@@ -17,7 +17,7 @@ const {
   class: className = '',
 } = Astro.props;
 
-const baseStyles = 'inline-flex items-center justify-center font-medium rounded-full transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-zinc-950 focus:ring-cyan-500 active:scale-[0.98]';
+const baseStyles = 'inline-flex items-center justify-center font-medium rounded-full transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-zinc-950 focus:ring-cyan-500 active:scale-[0.98] text-center whitespace-nowrap';
 
 const variantStyles = {
   primary: 'bg-white text-zinc-950 hover:bg-zinc-100 shadow-md font-semibold',
@@ -26,9 +26,9 @@ const variantStyles = {
 }[variant];
 
 const sizeStyles = {
-  sm: 'px-3.5 py-1.5 text-xs gap-1.5',
-  md: 'px-5 py-2.5 text-sm gap-2',
-  lg: 'px-6 py-3.5 text-base gap-2.5 font-semibold',
+  sm: 'px-2.5 py-1 text-[10px] sm:text-xs sm:px-3.5 sm:py-1.5 gap-1 font-medium tracking-tight sm:tracking-normal',
+  md: 'px-3 py-1.5 text-xs sm:text-sm sm:px-4 sm:py-2 gap-1.5',
+  lg: 'px-4 py-2 text-xs sm:text-base sm:px-6 sm:py-3 gap-2 font-semibold',
 }[size];
 
 const classes = `${baseStyles} ${variantStyles} ${sizeStyles} ${className}`;
