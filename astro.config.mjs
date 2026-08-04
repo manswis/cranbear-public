@@ -3,8 +3,6 @@ import tailwindcss from '@tailwindcss/vite';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://manswis.github.io',
-  base: '/cranbear-public',
   output: 'static',
   build: {
     format: 'directory'

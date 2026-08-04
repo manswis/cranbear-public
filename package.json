@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
-    "build": "astro build",
+    "build": "astro build && cp dist/universal-scanner/privacy/index.html dist/privacy.html && cp dist/universal-scanner/terms/index.html dist/terms.html",
     "preview": "astro preview",
     "astro": "astro"
   },
