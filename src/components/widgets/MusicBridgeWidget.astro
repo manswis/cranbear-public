@@ -1,0 +1,66 @@
+---
+---
+
+<div class="relative overflow-hidden rounded-2xl border border-zinc-800 bg-zinc-950/80 p-6 shadow-2xl backdrop-blur-md">
+  <!-- Header Telemetry -->
+  <div class="flex items-center justify-between border-b border-zinc-800/80 pb-4 mb-4 font-mono text-xs text-zinc-400">
+    <div class="flex items-center gap-2">
+      <span class="h-2 w-2 rounded-full bg-cyan-400 animate-pulse"></span>
+      <span>REAL-TIME TRACK MIGRATION</span>
+    </div>
+    <span class="text-zinc-500">PLAYLIST SYNC ENGINE</span>
+  </div>
+
+  <!-- Audio Service Bridge Display -->
+  <div class="space-y-4">
+    <!-- Source & Destination Header -->
+    <div class="grid grid-cols-2 gap-4">
+      <!-- Spotify Source -->
+      <div class="flex items-center justify-between p-3 rounded-lg bg-zinc-900/80 border border-zinc-800">
+        <div class="flex items-center gap-2.5">
+          <div class="w-7 h-7 rounded-full bg-[#1DB954]/20 border border-[#1DB954]/40 flex items-center justify-center text-[#1DB954] text-xs font-bold font-mono">
+            S
+          </div>
+          <div>
+            <div class="text-xs font-medium text-zinc-200">Spotify</div>
+            <div class="text-[10px] text-zinc-500 font-mono">1,420 Tracks</div>
+          </div>
+        </div>
+        <span class="text-[10px] font-mono text-emerald-400 bg-emerald-400/10 px-1.5 py-0.5 rounded border border-emerald-500/20">SOURCE</span>
+      </div>
+
+      <!-- Apple Music Dest -->
+      <div class="flex items-center justify-between p-3 rounded-lg bg-zinc-900/80 border border-zinc-800">
+        <div class="flex items-center gap-2.5">
+          <div class="w-7 h-7 rounded-full bg-[#FA243C]/20 border border-[#FA243C]/40 flex items-center justify-center text-[#FA243C] text-xs font-bold font-mono">
+            A
+          </div>
+          <div>
+            <div class="text-xs font-medium text-zinc-200">Apple Music</div>
+            <div class="text-[10px] text-zinc-500 font-mono">Migrating...</div>
+          </div>
+        </div>
+        <span class="text-[10px] font-mono text-cyan-400 bg-cyan-400/10 px-1.5 py-0.5 rounded border border-cyan-500/20">DEST</span>
+      </div>
+    </div>
+
+    <!-- Animated Waveform Transfer Track -->
+    <div class="relative p-4 rounded-xl bg-zinc-900/40 border border-zinc-800/80 industrial-grid-dense overflow-hidden">
+      <div class="flex items-center justify-between text-xs font-mono text-zinc-300 mb-2">
+        <span class="truncate">Now Syncing: Midnight City - M83</span>
+        <span class="text-cyan-400">98% Match</span>
+      </div>
+
+      <!-- Animated Progress Bar with Particle Pulse -->
+      <div class="relative w-full h-2 rounded-full bg-zinc-800 overflow-hidden">
+        <div class="absolute inset-y-0 left-0 w-[78%] bg-gradient-to-r from-emerald-500 via-cyan-400 to-indigo-500 rounded-full animate-pulse"></div>
+      </div>
+
+      <!-- Live Sync Telemetry -->
+      <div class="mt-3 flex items-center justify-between font-mono text-[10px] text-zinc-400">
+        <span>TRANSFERRED: 1,108 / 1,420</span>
+        <span class="text-zinc-500">SPEED: 48 TRACKS/SEC</span>
+      </div>
+    </div>
+  </div>
+</div>

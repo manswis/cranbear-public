@@ -1,0 +1,114 @@
+@import "tailwindcss";
+@import "./theme/tokens.css";
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    color-scheme: dark;
+  }
+  
+  body {
+    background-color: var(--skin-bg-base);
+    color: var(--skin-text-primary);
+    font-family: var(--skin-font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--skin-bg-base);
+}
+::-webkit-scrollbar-thumb {
+  background: #27272a;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #3f3f46;
+}
+
+/* Apple Legal Document Prose Reader Styling */
+.prose {
+  color: var(--skin-text-secondary);
+  font-family: var(--skin-font-sans);
+  font-size: 0.95rem;
+  line-height: 1.65;
+}
+
+.prose h1 {
+  color: var(--skin-text-primary);
+  font-family: var(--skin-font-heading);
+  font-size: 1.75rem;
+  font-weight: 700;
+  margin-top: 0;
+  margin-bottom: 0.75rem;
+  letter-spacing: -0.02em;
+}
+
+.prose h2 {
+  color: var(--skin-text-primary);
+  font-family: var(--skin-font-heading);
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+  letter-spacing: -0.01em;
+}
+
+.prose h3 {
+  color: var(--skin-text-primary);
+  font-family: var(--skin-font-heading);
+  font-size: 1.05rem;
+  font-weight: 600;
+  margin-top: 1.15rem;
+  margin-bottom: 0.4rem;
+}
+
+.prose p {
+  margin-bottom: 0.75rem;
+}
+
+.prose ul, .prose ol {
+  margin-top: 0.4rem;
+  margin-bottom: 0.85rem;
+  padding-left: 1.25rem;
+}
+
+.prose li {
+  margin-bottom: 0.35rem;
+}
+
+.prose a {
+  color: #38bdf8;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: color 0.15s ease;
+}
+
+.prose a:hover {
+  color: #7dd3fc;
+}
+
+.prose table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.prose th, .prose td {
+  padding: 0.6rem 0.85rem;
+  border: 1px solid var(--skin-border);
+  text-align: left;
+}
+
+.prose th {
+  background-color: var(--skin-bg-elevated);
+  color: var(--skin-text-primary);
+  font-weight: 600;
+}

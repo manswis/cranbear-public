@@ -1,0 +1,34 @@
+:root {
+  /* Canvas & Surface Colors */
+  --skin-bg-base: #0a0a0c;
+  --skin-bg-surface: #141417;
+  --skin-bg-elevated: #1c1c21;
+  --skin-bg-card: rgba(20, 20, 23, 0.95);
+  
+  /* Text Colors */
+  --skin-text-primary: #ffffff;
+  --skin-text-secondary: #a1a1aa;
+  --skin-text-muted: #71717a;
+  
+  /* Border & Corner Radius Tokens */
+  --skin-border: rgba(255, 255, 255, 0.08);
+  --skin-border-hover: rgba(255, 255, 255, 0.16);
+  --skin-radius-card: 1.5rem; /* 24px Apple Card Squircle */
+  --skin-radius-button: 9999px; /* Pill Shape */
+  --skin-radius-badge: 9999px;
+  
+  /* Elevation Shadows */
+  --skin-shadow-card: 0 20px 40px -15px rgba(0, 0, 0, 0.6);
+  --skin-shadow-glow-emerald: 0 0 30px -5px rgba(16, 185, 129, 0.2);
+  --skin-shadow-glow-cyan: 0 0 30px -5px rgba(6, 182, 212, 0.2);
+  --skin-shadow-glow-indigo: 0 0 30px -5px rgba(99, 102, 241, 0.2);
+  
+  /* Typography Tokens */
+  --skin-font-sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --skin-font-heading: 'Plus Jakarta Sans', var(--skin-font-sans);
+  
+  /* Brand Accent Colors */
+  --skin-accent-emerald: #10b981;
+  --skin-accent-cyan: #06b6d4;
+  --skin-accent-indigo: #6366f1;
+}

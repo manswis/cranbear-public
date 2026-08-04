@@ -1,0 +1,79 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import AppIcon from '../../components/ui/AppIcon.astro';
+import Badge from '../../components/ui/Badge.astro';
+import Button from '../../components/ui/Button.astro';
+import ScreenshotCarousel from '../../components/ui/ScreenshotCarousel.astro';
+import { APPS, getAppById } from '../../data/apps';
+
+export function getStaticPaths() {
+  return APPS.map((app) => ({
+    params: { app: app.id },
+  }));
+}
+
+const { app } = Astro.params;
+const appDetails = getAppById(app)!;
+---
+
+<BaseLayout title={`${appDetails.name} — Cranbear Application`} activeApp={app}>
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-10">
+    <!-- Header Block -->
+    <div class="p-8 rounded-3xl border border-zinc-800 bg-zinc-900/80 backdrop-blur-xl flex flex-wrap items-start justify-between gap-6">
+      <div class="flex items-center gap-5">
+        <AppIcon appId={appDetails.id} appName={appDetails.name} size="xl" />
+        <div class="space-y-1.5">
+          <div class="flex items-center gap-3">
+            <h1 class="text-3xl font-bold text-white">{appDetails.name}</h1>
+            <Badge status={appDetails.status} />
+          </div>
+          <p class="text-sm text-zinc-400 font-medium">{appDetails.category} • {appDetails.tagline}</p>
+        </div>
+      </div>
+
+      <div class="flex flex-wrap items-center gap-2.5">
+        {appDetails.playStoreUrl && (
+          <Button href={appDetails.playStoreUrl} target="_blank" rel="noopener noreferrer" variant="primary" size="md">
+            DOWNLOAD ON GOOGLE PLAY
+          </Button>
+        )}
+        <Button href={`/${appDetails.id}/guide/`} variant="secondary" size="md">
+          USER GUIDE & HELP
+        </Button>
+        <Button href={`/${appDetails.id}/privacy/`} variant="outline" size="md">
+          PRIVACY POLICY
+        </Button>
+      </div>
+    </div>
+
+    <!-- Capabilities Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <div class="p-8 rounded-3xl border border-zinc-800 bg-zinc-900/60 space-y-4">
+        <h2 class="text-xl font-bold text-white">Product Overview</h2>
+        <p class="text-zinc-300 leading-relaxed text-sm">
+          {appDetails.description}
+        </p>
+      </div>
+
+      <div class="p-8 rounded-3xl border border-zinc-800 bg-zinc-900/60 space-y-4">
+        <h2 class="text-xl font-bold text-white">Core Capabilities</h2>
+        <ul class="space-y-2.5 text-xs text-zinc-300">
+          {appDetails.features.map((feat) => (
+            <li class="flex items-center gap-3 bg-zinc-950/60 p-3 rounded-2xl border border-zinc-800/80">
+              <span class="text-emerald-400 font-bold">✓</span>
+              <span>{feat}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+
+    <!-- Screenshot Gallery -->
+    {appDetails.screenshots && appDetails.screenshots.length > 0 && (
+      <div class="space-y-4 pt-6 border-t border-zinc-800/80">
+        <h2 class="text-xl font-bold text-white">Interface Gallery ({appDetails.screenshots.length})</h2>
+        <ScreenshotCarousel appId={appDetails.id} screenshots={appDetails.screenshots} appName={appDetails.name} />
+      </div>
+    )}
+  </div>
+</BaseLayout>

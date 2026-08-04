@@ -1,0 +1,20 @@
+---
+interface Props {
+  status: 'live' | 'new' | 'coming-soon';
+}
+
+const { status } = Astro.props;
+
+const statusMap = {
+  live: { label: 'AVAILABLE NOW', dotColor: 'bg-emerald-400', textColor: 'text-emerald-400', bgColor: 'bg-emerald-500/10 border-emerald-500/20' },
+  new: { label: 'NEW RELEASE', dotColor: 'bg-cyan-400', textColor: 'text-cyan-400', bgColor: 'bg-cyan-500/10 border-cyan-500/20' },
+  'coming-soon': { label: 'IN DEVELOPMENT', dotColor: 'bg-amber-400', textColor: 'text-amber-400', bgColor: 'bg-amber-500/10 border-amber-500/20' },
+};
+
+const badge = statusMap[status];
+---
+
+<span class={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-semibold tracking-wider border ${badge.bgColor} ${badge.textColor}`}>
+  <span class={`w-1.5 h-1.5 rounded-full ${badge.dotColor} animate-pulse`}></span>
+  <span>{badge.label}</span>
+</span>

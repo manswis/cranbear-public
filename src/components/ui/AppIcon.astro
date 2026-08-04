@@ -1,0 +1,39 @@
+---
+interface Props {
+  appId: string;
+  appName: string;
+  size?: 'sm' | 'md' | 'lg' | 'xl';
+}
+
+const { appId, appName, size = 'md' } = Astro.props;
+
+const iconPathMap: Record<string, string> = {
+  'universal-scanner': '/assets/universal-scanner/icon.png',
+  'music-bridge': '/assets/music-bridge/icon.svg',
+  'cosphere': '/assets/cosphere/icon.svg',
+};
+
+const iconUrl = iconPathMap[appId];
+
+const sizeClasses = {
+  sm: 'w-8 h-8 rounded-xl text-xs',
+  md: 'w-12 h-12 rounded-2xl text-base',
+  lg: 'w-16 h-16 rounded-2xl text-xl',
+  xl: 'w-20 h-20 rounded-3xl text-2xl',
+}[size];
+---
+
+<div class={`relative flex items-center justify-center bg-zinc-900 border border-zinc-800 shadow-md overflow-hidden flex-shrink-0 ${sizeClasses}`}>
+  {iconUrl ? (
+    <img 
+      src={iconUrl} 
+      alt={`${appName} Icon`} 
+      class="w-full h-full object-cover rounded-[inherit]"
+      loading="eager"
+    />
+  ) : (
+    <span class="font-bold text-zinc-300">
+      {appName.charAt(0)}
+    </span>
+  )}
+</div>

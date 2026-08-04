@@ -1,0 +1,317 @@
+---
+title: "Terms of Service for Universal Scanner"
+app: "universal-scanner"
+appName: "Universal Scanner"
+type: "terms"
+lastUpdated: "2025-12-21"
+supportEmail: "cranbear.service@gmail.com"
+---
+
+# Terms of Service for Universal Scanner 
+
+**Last Updated:** 21st December 2025
+
+## 1. Acceptance of Terms 
+
+By downloading, installing, or using **Universal Scanner** ("the App"), you agree to be bound by these Terms of Service ("Terms"). If you do not agree to these Terms, please do not use the App.
+
+**Age Restriction:** The App is not intended for users under 13 years of age (or the minimum age required in your jurisdiction). By using the App, you represent and warrant that you are at least 13 years old and, if you are under 18 years of age, that you have obtained parental or legal guardian consent to use the App.
+
+## 2. License to Use 
+
+We grant you a personal, non-exclusive, non-transferable, revocable license to use the App for your **personal, non-commercial purposes only**, subject to these Terms. You may not:
+
+* Reverse engineer, decompile, or attempt to extract the source code of the App.
+* Redistribute, resell, or sublicense the App.
+* Remove, alter, or obscure any proprietary notices (copyright, trademark) from the App.
+
+**Pricing:** The App is provided free of charge. We reserve the right to introduce paid features, premium tiers, or subscription services in the future, subject to updated Terms and with advance notice to users.
+
+## 3. Intellectual Property Rights 
+
+All intellectual property rights in the App, including but not limited to copyrights, trademarks, patents, trade secrets, source code, design, user interface, graphics, and all other proprietary materials, are owned exclusively by **Universal Scanner** or its licensors.
+
+You acknowledge and agree that:
+
+* You receive no ownership rights in the App except the limited license granted in Section 2.
+* The App is protected by copyright laws and international treaty provisions.
+* Any unauthorized use, reproduction, or distribution of the App or its content may result in severe civil and criminal penalties.
+* "Universal Scanner" and associated logos are trademarks. You may not use these marks without prior written permission.
+
+### 3.1 Feedback License 
+
+If you submit feedback, suggestions, ideas, or other inputs regarding the App ("Feedback"), you grant us a non-exclusive, worldwide, perpetual, irrevocable, fully-paid, royalty-free, sublicensable, and transferable license to use, reproduce, modify, adapt, publish, translate, create derivative works from, distribute, perform, and display such Feedback in any manner and for any purpose.
+
+## 4. Description of Service 
+
+Universal Scanner is a comprehensive barcode and QR code scanning application that provides the following functionality:
+
+### 3.1 Scanning Features 
+
+* **Real-Time Scanning:** Decode 1D barcodes (Code 128, Code 39, EAN-13, UPC-A, etc.) and 2D codes (QR codes, Data Matrix, PDF417, Aztec) using your device's camera.
+* **Gallery Scanning:** Import and scan barcodes from images stored in your photo library.
+* **Batch Scanning:** Scan multiple barcodes in sequence during a single session.
+* **On-Device Processing:** All barcode decoding is performed locally on your device using advanced machine learning algorithms.
+
+### 3.2 Code Generation 
+
+* Create custom QR codes and barcodes for various data types including: 
+
+  * Plain text, URLs, email addresses, phone numbers
+  * Wi-Fi network credentials, contact information (vCards)
+  * SMS messages, calendar events, geographic locations
+
+* Customize generated codes with colors and templates.
+
+### 3.3 Data Management 
+
+* **Local Storage:** All scan history and generated codes are stored exclusively on your device in a local database.
+* **Organization:** Mark items as favorites, add to home screen widgets, categorize scans.
+* **Search & Filter:** Search through your scan history with advanced filtering options.
+
+### 3.4 Export Functionality 
+
+* Export scan history and generated codes to multiple formats: 
+
+  * **PDF:** Formatted documents with barcode images and metadata.
+  * **CSV:** Spreadsheet-compatible data files.
+  * **Text:** Structured data for programmatic use.
+  * **Images:** Individual barcode/QR code images (PNG format).
+
+## 4. Disclaimer of Warranties 
+
+The App is provided on an **"AS IS"** and **"AS AVAILABLE"** basis without warranties of any kind, either express or implied. We make no warranties that:
+
+* The scanner will successfully decode every barcode or QR code format in all conditions (lighting, angle, damage, print quality may affect scanning).
+* The App will be error-free, uninterrupted, or free from viruses or harmful components.
+* The information obtained via scanning is accurate, complete, current, or safe.
+* Generated QR codes or barcodes will be readable by all third-party scanners or systems.
+* Export functionality will be compatible with all third-party applications or systems.
+
+## 5. Third-Party Content & Scanned Data 
+
+### 5.1 No Control Over Scanned Content 
+
+The App acts solely as a **decoding tool** for third-party barcodes and QR codes. We do not create, control, endorse, verify, or validate the content embedded within barcodes or QR codes that you scan.
+
+### 5.2 External Links & Safety Risks 
+
+* **Risk Acknowledgment:** Scanning a QR code may direct you to external websites, Wi-Fi networks, or trigger device actions (e.g., opening email clients, dialing phone numbers, adding calendar events, connecting to networks). These destinations and actions may:
+
+  * Contain malware, viruses, ransomware, spyware, or phishing attempts.
+  * Lead to offensive, illegal, harmful, or age-inappropriate content.
+  * Initiate fraudulent schemes, scams, or unauthorized financial transactions.
+  * Compromise your device security or personal data.
+  * Incur unexpected costs (e.g., premium SMS, international calls, data charges).
+
+* **User Responsibility:** You acknowledge and accept that you access scanned content and execute triggered actions **entirely at your own risk**. We are not responsible for any damages, data loss, security breaches, financial loss, privacy violations, or harm of any kind resulting from:
+
+  * Opening a URL or link decoded by the App.
+  * Connecting to a Wi-Fi network via a scanned QR code.
+  * Adding contact information, calendar events, or other data to your device.
+  * Initiating phone calls, SMS messages, or emails.
+  * Any other action triggered by scanned barcode or QR code data.
+
+* **Verification Responsibility:** You are solely responsible for verifying the safety and legitimacy of scanned content before taking any action. We strongly recommend:
+
+  * Inspecting URLs before opening them.
+  * Verifying Wi-Fi network credentials with the network owner.
+  * Confirming the source of QR codes before scanning.
+
+### 5.3 Generated Content Responsibility 
+
+When you generate QR codes or barcodes using the App, you are solely responsible for:
+
+* The accuracy and legality of the content you encode.
+* Ensuring you have the right to use and distribute the encoded content.
+* Compliance with all applicable laws and regulations.
+
+You agree not to generate codes containing:
+
+* Illegal, abusive, defamatory, threatening, or malicious content.
+* Links to malware, phishing sites, fraudulent schemes, or illegal content.
+* Content that violates intellectual property rights (copyright, trademark, trade secrets).
+* Content that violates privacy rights or contains unauthorized personal information.
+* Misleading or deceptive information.
+
+### 5.4 Wi-Fi Network Connections 
+
+When scanning QR codes that contain Wi-Fi network credentials:
+
+* You acknowledge that connecting to unknown or untrusted networks may expose your device to security risks.
+* We are not responsible for the security, privacy practices, or content accessible through third-party Wi-Fi networks.
+* You connect to networks at your own risk.
+
+## 6. User Data & Privacy 
+
+### 6.1 Local Data Storage 
+
+* All scan history, generated codes, and app settings are stored **locally on your device only**.
+* We do not have access to, collect, or store the content of your scans on our servers.
+* You are responsible for backing up your data if desired.
+
+### 6.2 Data Export 
+
+* When you export data (PDF, CSV, JSON, images), the exported files are saved to your device's storage or shared via your chosen method.
+* You are responsible for the security and privacy of exported data.
+* We are not responsible for unauthorized access to exported files.
+
+### 6.3 Analytics 
+
+* We collect anonymous, aggregated usage data as described in our Privacy Policy.
+* You can opt-out of analytics in the App settings.
+
+## 7. Prohibited Conduct 
+
+You agree **not** to use the App to:
+
+* Violate any local, state, national, or international laws or regulations.
+* Infringe upon the intellectual property rights of others.
+* Generate or distribute codes containing illegal, harmful, or malicious content.
+* Transmit or generate content that is harmful, threatening, abusive, harassing, defamatory, vulgar, obscene, or otherwise objectionable.
+* Attempt to bypass, disable, or interfere with security features of the App.
+* Use automated systems (bots, scripts, scrapers) to access the App in a manner that sends more requests than a human could reasonably produce.
+* Attempt to gain unauthorized access to any portion of the App or related systems.
+* Use the App to spam, phish, or conduct fraudulent activities.
+* Interfere with or disrupt the App's functionality or other users' use of the App.
+* Violate the terms of service of the applicable app store (e.g., Apple App Store Terms and Conditions, Google Play Terms of Service). **App Store Compliance:** Your use of the App must comply with all applicable app store terms and policies, including but not limited to the Apple App Store Terms and Conditions and Google Play Terms of Service. You acknowledge that these Terms are between you and Universal Scanner only, and not with the app store provider.
+
+### 7.1 Export Control & Legal Compliance 
+
+You represent and warrant that:
+
+* You are not located in a country that is subject to a U.S. Government embargo, or that has been designated by the U.S. Government as a "terrorist supporting" country.
+* You are not listed on any U.S. Government list of prohibited or restricted parties.
+
+## 8. Limitation of Liability 
+
+To the maximum extent permitted by applicable law:
+
+* **Universal Scanner** and its developers, officers, employees, and affiliates shall **not be liable** for any indirect, incidental, special, consequential, exemplary, or punitive damages arising out of or related to your use or inability to use the App.
+
+* 
+
+This includes, but is not limited to, damages for:
+
+  * Loss of profits, revenue, business, or anticipated savings.
+  * Loss of data, information, or files.
+  * Loss of goodwill or reputation.
+  * Device damage or malfunction.
+  * Security breaches or data theft.
+  * Costs of procurement of substitute goods or services.
+  * Personal injury or emotional distress.
+
+* 
+
+Some jurisdictions do not allow the exclusion or limitation of certain damages. In such jurisdictions, our liability will be limited to the maximum extent permitted by law.
+
+## 9. Indemnification 
+
+You agree to indemnify, defend, and hold harmless Universal Scanner and its developers, officers, employees, affiliates, and agents from and against any and all claims, damages, losses, liabilities, costs, and expenses (including reasonable legal fees and costs) arising from:
+
+* Your use or misuse of the App.
+* Your violation of these Terms.
+* Your violation of any rights of another party (including intellectual property rights, privacy rights, or publicity rights).
+* Content you generate, scan, or distribute using the App.
+* Actions you take based on scanned data.
+* Your breach of any applicable laws or regulations.
+
+## 10. Termination 
+
+### 10.1 Termination by Us 
+
+We reserve the right to terminate or suspend your access to the App immediately, without prior notice or liability, for any reason, including but not limited to:
+
+* Breach of these Terms.
+* Fraudulent, abusive, or illegal activity.
+* Misuse of the App that harms other users or third parties.
+* At our sole discretion for any reason or no reason.
+
+### 10.2 Effect of Termination 
+
+Upon termination:
+
+* Your license to use the App will immediately cease.
+* You must cease all use of the App and may delete it from your device.
+* Locally stored data will remain on your device unless you manually delete it.
+* Sections of these Terms that by their nature should survive termination will survive (including Sections 5, 8, 9, 10, 11, 12, 13, 14).
+
+## 11. Governing Law & Dispute Resolution 
+
+### 11.1 Governing Law 
+
+These Terms shall be governed by and construed in accordance with the laws of the **Province of Ontario, Canada**, without regard to its conflict of law provisions.
+
+### 11.2 Jurisdiction 
+
+You agree to submit to the exclusive jurisdiction of the courts located in Ontario, Canada, for the resolution of any disputes arising from these Terms or your use of the App.
+
+### 11.3 Dispute Resolution 
+
+Before filing any legal action, you agree to attempt to resolve any dispute informally by contacting us at [cranbear.service@gmail.com](mailto:cranbear.service@gmail.com).
+
+### 11.4 Class Action Waiver 
+
+**To the extent permitted by applicable law, you agree that any dispute resolution proceedings will be conducted only on an individual basis and not in a class, consolidated, or representative action.** You expressly waive any right you may have to participate in a class action or to seek remedies on a collective basis.
+
+## 12. Changes to Terms 
+
+We reserve the right to modify or replace these Terms at any time at our sole discretion.
+
+### 12.1 Notification of Changes 
+
+We will notify you of any changes by:
+
+* Posting the new Terms within the App or on our website.
+* Updating the "Last Updated" date at the top of this document.
+* Optionally, providing in-app notifications or email notices.
+
+### 12.2 Material Changes 
+
+For material changes to these Terms (such as changes to liability, indemnification, dispute resolution, or user rights), we may require you to accept the updated Terms via an in-app prompt or clickwrap agreement before you can continue using the App.
+
+### 12.3 Acceptance 
+
+Your continued use of the App following notification of any changes constitutes your acceptance of the new Terms. If you do not agree to the modified Terms, you must stop using the App.
+
+## 13. Severability 
+
+If any provision of these Terms is found to be unenforceable, invalid, or illegal by a court of competent jurisdiction, that provision will be limited or eliminated to the minimum extent necessary so that these Terms will otherwise remain in full force and effect.
+
+## 14. Entire Agreement 
+
+These Terms, together with our Privacy Policy, constitute the entire agreement between you and Universal Scanner regarding the use of the App and supersede all prior or contemporaneous agreements, communications, and proposals (whether oral, written, or electronic) between you and us.
+
+## 15. No Waiver 
+
+Our failure to enforce any right or provision of these Terms will not be considered a waiver of those rights. Any waiver of any provision of these Terms will be effective only if in writing and signed by us.
+
+## 16. Assignment 
+
+You may not assign or transfer these Terms or your rights and obligations under these Terms without our prior written consent. We may assign these Terms without restriction.
+
+## 17. Third-Party Beneficiaries 
+
+Exceptions:
+
+* **App Store Providers:** Apple Inc. (and its subsidiaries) and Google LLC are third-party beneficiaries of these Terms. Upon your acceptance of these Terms, these third-party beneficiaries will have the right (and will be deemed to have accepted the right) to enforce these Terms against you.
+* Otherwise, these Terms do not create any third-party beneficiary rights.
+
+## 18. Force Majeure 
+
+We shall not be liable for any failure or delay in performance under these Terms due to causes beyond our reasonable control, including but not limited to acts of God, war, terrorism, riots, embargoes, acts of civil or military authorities, fire, floods, accidents, network infrastructure failures, strikes, or shortages of transportation, facilities, fuel, energy, labor, or materials.
+
+## 19. Contact Information 
+
+For any questions, concerns, or notices regarding these Terms, please contact us at:
+
+**Email:** [cranbear.service@gmail.com](mailto:cranbear.service@gmail.com)
+
+**Response Time:** We will make reasonable efforts to respond to inquiries within 5-7 business days.
+
+## 20. Version History 
+
+<table>
+<tr><th>Version</th><th>Date</th><th>Description</th></tr>
+<tr><td>1.0</td><td>2025-12-21</td><td>Initial Terms of Service release.</td></tr></table>
+

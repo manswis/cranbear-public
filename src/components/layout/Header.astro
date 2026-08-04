@@ -1,0 +1,56 @@
+---
+import AppIcon from '../ui/AppIcon.astro';
+import { APPS } from '../../data/apps';
+
+interface Props {
+  activeApp?: string;
+}
+
+const { activeApp } = Astro.props;
+---
+
+<header class="sticky top-0 z-50 backdrop-blur-xl bg-zinc-950/80 border-b border-zinc-800/80 transition-colors">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+    <!-- Brand Logo -->
+    <a href="/" class="flex items-center gap-3 group">
+      <img src="/assets/brand/logo.png" alt="Cranbear Logo" class="w-8 h-8 rounded-xl border border-zinc-800 group-hover:scale-105 transition-transform" />
+      <div class="flex flex-col">
+        <span class="text-lg font-bold tracking-tight text-white font-sans group-hover:text-cyan-400 transition-colors">Cranbear</span>
+      </div>
+    </a>
+
+    <!-- App Switcher Nav Links -->
+    <nav class="hidden md:flex items-center gap-1 bg-zinc-900/90 p-1 rounded-full border border-zinc-800">
+      <a 
+        href="/" 
+        class={`px-4 py-1.5 rounded-full text-xs font-medium transition-all ${
+          !activeApp ? 'bg-white text-zinc-950 font-semibold shadow-sm' : 'text-zinc-400 hover:text-white'
+        }`}
+      >
+        All Apps
+      </a>
+
+      {APPS.map((app) => (
+        <a 
+          href={`/${app.id}/`}
+          class={`px-3.5 py-1.5 rounded-full text-xs font-medium transition-all ${
+            activeApp === app.id ? 'bg-white text-zinc-950 font-semibold shadow-sm' : 'text-zinc-400 hover:text-white'
+          }`}
+        >
+          {app.name}
+        </a>
+      ))}
+    </nav>
+
+    <!-- Top Links -->
+    <div class="flex items-center gap-3">
+      <a href="/universal-scanner/guide/" class="text-xs text-zinc-400 hover:text-white transition-colors">
+        Help & Guides
+      </a>
+      <span class="text-zinc-800">|</span>
+      <a href="/privacy.html" class="text-xs text-zinc-400 hover:text-white transition-colors">
+        Privacy & Terms
+      </a>
+    </div>
+  </div>
+</header>

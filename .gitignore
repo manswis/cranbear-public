@@ -1,0 +1,11 @@
+# Build & Dependency Artifacts
+node_modules/
+.astro/
+dist/
+.ds_store
+*.log
+
+# Temporary Scratch Files
+privacy_extracted.html
+terms_extracted.html
+convert.py

@@ -1,0 +1,41 @@
+---
+interface Props {
+  appId: string;
+  screenshots: string[];
+  appName: string;
+}
+
+const { appId, screenshots, appName } = Astro.props;
+---
+
+{screenshots && screenshots.length > 0 ? (
+  <div class="relative w-full overflow-x-auto py-6 no-scrollbar">
+    <div class="flex items-center gap-6 px-4 min-w-max">
+      {screenshots.map((src, index) => (
+        <div class="relative group flex-shrink-0 w-60 sm:w-64 rounded-2xl border border-zinc-800 bg-zinc-900/90 p-2 shadow-2xl transition-all duration-300 hover:border-zinc-600 hover:scale-[1.02]">
+          <!-- Mobile Frame Notch -->
+          <div class="relative w-full aspect-[9/19.5] rounded-xl overflow-hidden bg-zinc-950 border border-zinc-800">
+            <img
+              src={src}
+              alt={`${appName} Screenshot ${index + 1}`}
+              class="w-full h-full object-cover"
+              loading="lazy"
+            />
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+) : null}
+
+<style>
+  /* Hide scrollbar for Chrome, Safari and Opera */
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  /* Hide scrollbar for IE, Edge and Firefox */
+  .no-scrollbar {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+  }
+</style>
