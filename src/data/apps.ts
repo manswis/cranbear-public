@@ -34,16 +34,16 @@ export const APPS: AppData[] = [
     id: 'music-bridge',
     name: 'Music Bridge',
     category: 'Music & Entertainment',
-    tagline: 'Move Your Playlists Between Spotify and Apple Music.',
-    description: 'Bridge your music streaming ecosystem. Seamlessly transfer playlists, track metadata, and favorites across streaming platforms with sub-second matching accuracy.',
+    tagline: 'Control your Bose SoundTouch speakers, stream internet radio, and manage audio zones on your local network.',
+    description: 'Take full control of your home sound system. Easily discover Bose SoundTouch speakers and DLNA media servers on your local Wi-Fi, stream internet radio stations, and sync audio zones effortlessly across your home.',
     icon: '/assets/music-bridge/icon.svg',
     status: 'new',
     playStoreUrl: 'https://play.google.com/store/apps/details?id=com.cranbear.music_bridge',
     features: [
-      'Multi-platform streaming API synchronization',
-      'Lossless track matching & playlist transfer',
-      'Encrypted hardware token keychain security',
-      'Real-time migration progress telemetry'
+      'Bose SoundTouch speaker control over local Wi-Fi',
+      'Multi-room audio zone grouping & volume sync',
+      'Instant discovery of DLNA media servers',
+      'Stream live internet radio & web audio stations'
     ],
     screenshots: Array.from({ length: 16 }, (_, i) => `/assets/music-bridge/screenshots/screenshot${i + 1}.png`),
   },

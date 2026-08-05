@@ -45,9 +45,9 @@ import { APPS } from '../data/apps';
         <div class="rounded-2xl sm:rounded-3xl border skin-card p-4 sm:p-8 backdrop-blur-xl space-y-5 sm:space-y-6">
           <!-- Card Header Block -->
           <div class="flex flex-col sm:flex-row sm:items-start justify-between gap-4 border-b border-zinc-200 dark:border-zinc-800/80 pb-4 sm:pb-5">
-            <div class="flex items-center gap-3 sm:gap-4">
+            <div class="flex items-center gap-3 sm:gap-4 flex-1 min-w-0">
               <AppIcon appId={app.id} appName={app.name} size="md" />
-              <div class="space-y-0.5 sm:space-y-1">
+              <div class="space-y-0.5 sm:space-y-1 min-w-0 flex-1">
                 <div class="flex flex-wrap items-center gap-2">
                   <h3 class="text-xl sm:text-2xl font-bold skin-text-primary">{app.name}</h3>
                   <Badge status={app.status} />
@@ -56,34 +56,37 @@ import { APPS } from '../data/apps';
               </div>
             </div>
 
-            <!-- Quick Actions Grid: 4 Symmetric Pills on Mobile -->
-            <div class="grid grid-cols-2 sm:flex sm:flex-wrap sm:items-center gap-2 pt-2 sm:pt-0 w-full sm:w-auto">
+            <!-- Mobile View (< sm): 2-column Grid -->
+            <div class="grid grid-cols-2 gap-2 sm:hidden w-full pt-2">
               {app.playStoreUrl ? (
                 <a 
                   href={app.playStoreUrl} 
                   target="_blank" 
                   rel="noopener noreferrer" 
-                  class="inline-flex items-center justify-center font-semibold rounded-full bg-emerald-600 hover:bg-emerald-500 text-white shadow-md transition-all px-2.5 py-1 text-[10px] sm:text-xs sm:px-3.5 sm:py-1.5 gap-1 whitespace-nowrap active:scale-95"
+                  class="inline-flex items-center justify-center font-semibold rounded-full bg-emerald-600 hover:bg-emerald-500 text-white shadow-md transition-all px-2.5 py-1 text-[10px] gap-1 whitespace-nowrap active:scale-95"
                 >
                   <svg class="w-3.5 h-3.5 flex-shrink-0" viewBox="0 0 512 512" fill="none">
                     <path d="M325.8 243.8L74.8 494.8C65.5 504.1 50.4 497.5 50.4 484.4V27.6C50.4 14.5 65.5 7.9 74.8 17.2L325.8 268.2C332.5 274.9 332.5 285.8 325.8 292.5" fill="#00D2FF"/>
                     <path d="M386.7 304.7L325.8 243.8L74.8 494.8L386.7 322.7C395 318.1 395 309.3 386.7 304.7Z" fill="#00F076"/>
-                    <path d="M386.7 187.3L74.8 15.2L325.8 268.2L386.7 207.3C395 202.7 395 191.9 386.7 187.3Z" fill="#FF3A44"/>
+                    <path d="M386.7 187.3L74.8 15.2L325.8 268.2L386.7 207.3L461.5 202.7C395 202.7 395 191.9 386.7 187.3Z" fill="#FF3A44"/>
                     <path d="M461.5 243.8L386.7 304.7L325.8 268.2L386.7 207.3L461.5 268.2C469.8 272.8 469.8 281.6 461.5 286.2Z" fill="#FFC107"/>
                   </svg>
                   <span>Google Play</span>
                 </a>
               ) : (
-                <span class="inline-flex items-center justify-center font-medium rounded-full bg-zinc-200/80 dark:bg-zinc-800 text-zinc-500 dark:text-zinc-400 border border-zinc-300 dark:border-zinc-700/80 px-2.5 py-1 text-[10px] sm:text-xs sm:px-3.5 sm:py-1.5 gap-1 whitespace-nowrap opacity-75">
+                <span class="inline-flex items-center justify-center font-medium rounded-full bg-zinc-200/80 dark:bg-zinc-800 text-zinc-500 dark:text-zinc-400 border border-zinc-300 dark:border-zinc-700/80 px-2.5 py-1 text-[10px] gap-1 whitespace-nowrap opacity-75">
                   <svg class="w-3.5 h-3.5 flex-shrink-0 grayscale opacity-70" viewBox="0 0 512 512" fill="none">
                     <path d="M325.8 243.8L74.8 494.8C65.5 504.1 50.4 497.5 50.4 484.4V27.6C50.4 14.5 65.5 7.9 74.8 17.2L325.8 268.2C332.5 274.9 332.5 285.8 325.8 292.5" fill="#00D2FF"/>
                     <path d="M386.7 304.7L325.8 243.8L74.8 494.8L386.7 322.7C395 318.1 395 309.3 386.7 304.7Z" fill="#00F076"/>
-                    <path d="M386.7 187.3L74.8 15.2L325.8 268.2L386.7 207.3C395 202.7 395 191.9 386.7 187.3Z" fill="#FF3A44"/>
+                    <path d="M386.7 187.3L74.8 15.2L325.8 268.2L386.7 207.3L461.5 202.7C395 202.7 395 191.9 386.7 187.3Z" fill="#FF3A44"/>
                     <path d="M461.5 243.8L386.7 304.7L325.8 268.2L386.7 207.3L461.5 268.2C469.8 272.8 469.8 281.6 461.5 286.2Z" fill="#FFC107"/>
                   </svg>
                   <span>Coming Soon</span>
                 </span>
               )}
+              <Button href={`/${app.id}/`} variant="secondary" size="sm">
+                Overview
+              </Button>
               <Button href={`/${app.id}/guide/`} variant="secondary" size="sm">
                 User Guide
               </Button>
@@ -93,6 +96,55 @@ import { APPS } from '../data/apps';
               <Button href={`/${app.id}/terms/`} variant="outline" size="sm">
                 Terms of Use
               </Button>
+            </div>
+
+            <!-- Web / Desktop View (sm: and above): Fixed 2 Rows (3 on Top, 2 on Bottom) -->
+            <div class="hidden sm:flex flex-col items-end gap-2 shrink-0 ml-auto">
+              <!-- Top Row: 3 buttons -->
+              <div class="flex items-center gap-2 justify-end">
+                {app.playStoreUrl ? (
+                  <a 
+                    href={app.playStoreUrl} 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    class="inline-flex items-center justify-center font-semibold rounded-full bg-emerald-600 hover:bg-emerald-500 text-white shadow-md transition-all px-3 py-1.5 text-xs gap-1.5 whitespace-nowrap active:scale-95"
+                  >
+                    <svg class="w-3.5 h-3.5 flex-shrink-0" viewBox="0 0 512 512" fill="none">
+                      <path d="M325.8 243.8L74.8 494.8C65.5 504.1 50.4 497.5 50.4 484.4V27.6C50.4 14.5 65.5 7.9 74.8 17.2L325.8 268.2C332.5 274.9 332.5 285.8 325.8 292.5" fill="#00D2FF"/>
+                      <path d="M386.7 304.7L325.8 243.8L74.8 494.8L386.7 322.7C395 318.1 395 309.3 386.7 304.7Z" fill="#00F076"/>
+                      <path d="M386.7 187.3L74.8 15.2L325.8 268.2L386.7 207.3L461.5 202.7C395 202.7 395 191.9 386.7 187.3Z" fill="#FF3A44"/>
+                      <path d="M461.5 243.8L386.7 304.7L325.8 268.2L386.7 207.3L461.5 268.2C469.8 272.8 469.8 281.6 461.5 286.2Z" fill="#FFC107"/>
+                    </svg>
+                    <span>Google Play</span>
+                  </a>
+                ) : (
+                  <span class="inline-flex items-center justify-center font-medium rounded-full bg-zinc-200/80 dark:bg-zinc-800 text-zinc-500 dark:text-zinc-400 border border-zinc-300 dark:border-zinc-700/80 px-3 py-1.5 text-xs gap-1.5 whitespace-nowrap opacity-75">
+                    <svg class="w-3.5 h-3.5 flex-shrink-0 grayscale opacity-70" viewBox="0 0 512 512" fill="none">
+                      <path d="M325.8 243.8L74.8 494.8C65.5 504.1 50.4 497.5 50.4 484.4V27.6C50.4 14.5 65.5 7.9 74.8 17.2L325.8 268.2C332.5 274.9 332.5 285.8 325.8 292.5" fill="#00D2FF"/>
+                      <path d="M386.7 304.7L325.8 243.8L74.8 494.8L386.7 322.7C395 318.1 395 309.3 386.7 304.7Z" fill="#00F076"/>
+                      <path d="M386.7 187.3L74.8 15.2L325.8 268.2L386.7 207.3L461.5 202.7C395 202.7 395 191.9 386.7 187.3Z" fill="#FF3A44"/>
+                      <path d="M461.5 243.8L386.7 304.7L325.8 268.2L386.7 207.3L461.5 268.2C469.8 272.8 469.8 281.6 461.5 286.2Z" fill="#FFC107"/>
+                    </svg>
+                    <span>Coming Soon</span>
+                  </span>
+                )}
+                <Button href={`/${app.id}/`} variant="secondary" size="sm">
+                  Overview
+                </Button>
+                <Button href={`/${app.id}/guide/`} variant="secondary" size="sm">
+                  User Guide
+                </Button>
+              </div>
+
+              <!-- Bottom Row: 2 buttons -->
+              <div class="flex items-center gap-2 justify-end">
+                <Button href={`/${app.id}/privacy/`} variant="outline" size="sm">
+                  Privacy Policy
+                </Button>
+                <Button href={`/${app.id}/terms/`} variant="outline" size="sm">
+                  Terms of Use
+                </Button>
+              </div>
             </div>
           </div>
 

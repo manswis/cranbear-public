@@ -9,33 +9,31 @@ supportEmail: "cranbear.service@gmail.com"
 
 # Music Bridge — Help & User Guides
 
-Step-by-step guides for connecting your music accounts, transferring playlists, and troubleshooting matching issues.
+Step-by-step guides for discovering Bose SoundTouch speakers, connecting DLNA media servers, streaming internet radio, and managing speaker zones.
 
 ---
 
 ## 1. Quick Start Guides
 
-### 1.1 Account Connection
+### 1.1 Speaker & Media Server Discovery
+* Connect your mobile device to your home Wi-Fi network.
 * Open **Music Bridge**.
-* Go to **Sources / Accounts**.
-* Tap **Link Account** next to Spotify, Apple Music, or YouTube Music.
-* Authenticate via the secure official platform OAuth portal. Your login credentials never touch Cranbear servers.
+* Tap **Scan Network** to automatically discover nearby Bose SoundTouch speakers and DLNA media servers.
 
-### 1.2 Playlist Migration
-1. Select your **Source Platform** (e.g., Spotify).
-2. Select the playlists or tracks you wish to transfer.
-3. Choose your **Target Platform** (e.g., Apple Music).
-4. Tap **Start Migration**. Live progress and match status will be displayed in real time.
+### 1.2 Multi-Room Zone & Radio Stream Management
+1. Select your primary **Bose SoundTouch Speaker**.
+2. Browse available **DLNA Media Servers** or select an **Internet Radio Station** to play audio.
+3. Tap **Manage Zones** to group multiple speakers across your home for synchronized multi-room playback.
 
 ---
 
 ## 2. Troubleshooting & FAQ
 
-### Q: Why are some songs skipped during migration?
-Tracks are matched based on ISRC codes, artist names, and exact title matches. If a song is unreleased or regionally locked on the target service, it will be flagged for review.
+### Q: Why isn't my Bose SoundTouch speaker appearing in the app?
+Ensure your mobile device is connected to the exact same Wi-Fi network as your Bose SoundTouch speakers. If your router uses separate 2.4GHz and 5GHz network names, ensure both devices are on the same network subnet.
 
-### Q: Is my music streaming password safe?
-**Yes.** Music Bridge uses official OAuth 2.0 PKCE authentication flow. Access tokens are stored in your device's hardware enclave (Keychain / Keystore).
+### Q: Does Music Bridge send my home network data to external cloud servers?
+**No.** Music Bridge operates 100% locally on your device. Network discovery and speaker control stay entirely within your local Wi-Fi network.
 
 ---
 

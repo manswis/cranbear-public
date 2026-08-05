@@ -1,7 +1,6 @@
 ---
-import BaseLayout from './BaseLayout.astro';
-import AppIcon from '../components/ui/AppIcon.astro';
-import { getAppById } from '../data/apps';
+import AppLayout from './AppLayout.astro';
+import { getAppById, type AppData } from '../data/apps';
 
 interface Props {
   title: string;
@@ -12,92 +11,51 @@ interface Props {
 
 const { title, app, type, headings } = Astro.props;
 
-const appInfo = getAppById(app) || {
+const appInfo: AppData = getAppById(app) || {
   id: app,
   name: app === 'universal-scanner' ? 'Universal Scanner' : app === 'music-bridge' ? 'Music Bridge' : 'CoSphere',
-};
-
-const docTitleMap = {
-  privacy: 'Privacy Policy',
-  terms: 'Terms of Usage',
-  guide: 'User Guide & Help',
+  category: 'Productivity & Utilities',
+  tagline: 'Privacy-first mobile app.',
+  description: '',
+  icon: `/assets/${app}/icon.png`,
+  status: 'live',
+  features: [],
+  screenshots: [],
 };
 ---
 
-<BaseLayout title={`${title} — ${appInfo.name}`} activeApp={app}>
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8 space-y-6">
-    <!-- Header Banner -->
-    <div class="p-4 sm:p-6 rounded-2xl sm:rounded-3xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900/80 backdrop-blur-xl flex flex-wrap items-center justify-between gap-4 shadow-sm">
-      <div class="flex items-center gap-3 sm:gap-4">
-        <AppIcon appId={appInfo.id} appName={appInfo.name} size="lg" />
-        <div class="space-y-0.5">
-          <h1 class="text-lg sm:text-2xl font-bold text-zinc-900 dark:text-white">{appInfo.name}</h1>
-          <p class="text-xs text-zinc-600 dark:text-zinc-400 font-medium">{docTitleMap[type]}</p>
+<AppLayout title={`${title} — ${appInfo.name}`} appDetails={appInfo} activeTab={type}>
+  <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 items-start">
+    <!-- Main Document Article -->
+    <main class="lg:col-span-8 bg-white dark:bg-zinc-900/80 p-5 sm:p-8 rounded-2xl sm:rounded-3xl border border-zinc-200 dark:border-zinc-800 shadow-sm backdrop-blur-xl">
+      <article class="prose max-w-none">
+        <slot />
+      </article>
+    </main>
+
+    <!-- Sticky "ON THIS PAGE" Outline Sidebar -->
+    <aside class="hidden lg:block lg:col-span-4 space-y-4 sticky top-24">
+      {headings && headings.length > 0 && (
+        <div class="p-5 rounded-2xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900/60 space-y-3 max-h-[calc(100vh-8rem)] overflow-y-auto shadow-sm">
+          <div class="text-xs font-extrabold text-zinc-800 dark:text-zinc-300 uppercase tracking-wider border-b border-zinc-100 dark:border-zinc-800 pb-2">ON THIS PAGE</div>
+          <nav class="space-y-1.5 text-xs">
+            {headings
+              .filter((h) => h.depth <= 3)
+              .map((h) => (
+                <a
+                  href={`#${h.slug}`}
+                  class={`block py-1 transition-colors hover:text-cyan-600 dark:hover:text-cyan-400 ${
+                    h.depth === 3 
+                      ? 'pl-3.5 text-zinc-600 dark:text-zinc-400 font-normal' 
+                      : 'font-semibold text-zinc-900 dark:text-zinc-200'
+                  }`}
+                >
+                  {h.text}
+                </a>
+              ))}
+          </nav>
         </div>
-      </div>
-
-      <!-- App Document Tabs -->
-      <div class="flex items-center gap-1 sm:gap-1.5 bg-zinc-100 dark:bg-zinc-950 p-1 sm:p-1.5 rounded-full border border-zinc-200 dark:border-zinc-800">
-        <a 
-          href={`/${app}/guide/`} 
-          class={`px-3 sm:px-3.5 py-1 sm:py-1.5 rounded-full text-xs font-medium transition-all ${
-            type === 'guide' ? 'bg-white dark:bg-zinc-100 text-zinc-950 font-semibold shadow-sm' : 'text-zinc-600 dark:text-zinc-400 hover:text-zinc-950 dark:hover:text-white'
-          }`}
-        >
-          User Guide
-        </a>
-        <a 
-          href={`/${app}/privacy/`} 
-          class={`px-3 sm:px-3.5 py-1 sm:py-1.5 rounded-full text-xs font-medium transition-all ${
-            type === 'privacy' ? 'bg-white dark:bg-zinc-100 text-zinc-950 font-semibold shadow-sm' : 'text-zinc-600 dark:text-zinc-400 hover:text-zinc-950 dark:hover:text-white'
-          }`}
-        >
-          Privacy Policy
-        </a>
-        <a 
-          href={`/${app}/terms/`} 
-          class={`px-3 sm:px-3.5 py-1 sm:py-1.5 rounded-full text-xs font-medium transition-all ${
-            type === 'terms' ? 'bg-white dark:bg-zinc-100 text-zinc-950 font-semibold shadow-sm' : 'text-zinc-600 dark:text-zinc-400 hover:text-zinc-950 dark:hover:text-white'
-          }`}
-        >
-          Terms of Usage
-        </a>
-      </div>
-    </div>
-
-    <!-- 2-Column Document Reader Layout -->
-    <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 items-start">
-      <!-- Main Document Article -->
-      <main class="lg:col-span-8 bg-white dark:bg-zinc-900/80 p-5 sm:p-8 rounded-2xl sm:rounded-3xl border border-zinc-200 dark:border-zinc-800 shadow-sm backdrop-blur-xl">
-        <article class="prose max-w-none">
-          <slot />
-        </article>
-      </main>
-
-      <!-- Sticky "ON THIS PAGE" Outline Sidebar -->
-      <aside class="hidden lg:block lg:col-span-4 space-y-4 sticky top-24">
-        {headings && headings.length > 0 && (
-          <div class="p-5 rounded-2xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900/60 space-y-3 max-h-[calc(100vh-8rem)] overflow-y-auto shadow-sm">
-            <div class="text-xs font-extrabold text-zinc-800 dark:text-zinc-300 uppercase tracking-wider border-b border-zinc-100 dark:border-zinc-800 pb-2">ON THIS PAGE</div>
-            <nav class="space-y-1.5 text-xs">
-              {headings
-                .filter((h) => h.depth <= 3)
-                .map((h) => (
-                  <a
-                    href={`#${h.slug}`}
-                    class={`block py-1 transition-colors hover:text-cyan-600 dark:hover:text-cyan-400 ${
-                      h.depth === 3 
-                        ? 'pl-3.5 text-zinc-600 dark:text-zinc-400 font-normal' 
-                        : 'font-semibold text-zinc-900 dark:text-zinc-200'
-                    }`}
-                  >
-                    {h.text}
-                  </a>
-                ))}
-            </nav>
-          </div>
-        )}
-      </aside>
-    </div>
+      )}
+    </aside>
   </div>
-</BaseLayout>
+</AppLayout>

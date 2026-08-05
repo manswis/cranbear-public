@@ -1,0 +1,22 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import AppHeaderBlock from '../components/app/AppHeaderBlock.astro';
+import type { AppData } from '../data/apps';
+
+interface Props {
+  appDetails: AppData;
+  activeTab: 'overview' | 'guide' | 'privacy' | 'terms';
+  title?: string;
+  description?: string;
+}
+
+const { appDetails, activeTab, title, description } = Astro.props;
+const pageTitle = title || `${appDetails.name} — Cranbear Application`;
+---
+
+<BaseLayout title={pageTitle} description={description} activeApp={appDetails.id}>
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-10 space-y-8 sm:space-y-10">
+    <AppHeaderBlock appDetails={appDetails} activeTab={activeTab} />
+    <slot />
+  </div>
+</BaseLayout>
